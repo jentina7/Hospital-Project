@@ -25,6 +25,6 @@ class CheckFeedback(BasePermission):
 
 class CheckAppointments(BasePermission):
     def has_object_permission(self, request, view, obj):
-        if request.user == obj.patient or request.user == obj.doctor:
+        if request.user == obj.patient:
             return True
         return False

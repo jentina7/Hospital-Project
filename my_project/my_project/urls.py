@@ -42,6 +42,4 @@ urlpatterns = i18n_patterns(
     path("", include("hospital_app.urls")),
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('accounts/', include('allauth.urls')),
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

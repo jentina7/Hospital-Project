@@ -79,14 +79,14 @@ class PatientProfileSerializer(serializers.ModelSerializer):
 
 
 class AppointmentSerializer(serializers.ModelSerializer):
-    date_time = serializers.DateTimeField(format="%d-%m-%Y" " " "%H:%M")
+    date_time = serializers.DateTimeField(format="%d-%m-%Y %H:%M")
     class Meta:
         model = Appointment
         fields = ["id", "patient", "doctor", "date_time", "status", "notes"]
 
 
 class PrescriptionListSerializer(serializers.ModelSerializer):
-    created_date = serializers.DateTimeField(format="%d-%m-%Y" " " "%H:%M")
+    created_date = serializers.DateTimeField(format="%d-%m-%Y %H:%M")
     class Meta:
         model = Prescription
         fields = ["id", "patient", "doctor", "medicament", "dosage", "created_date"]
@@ -99,7 +99,7 @@ class PrescriptionSerializer(serializers.ModelSerializer):
 
 
 class MedicalRecordSerializer(serializers.ModelSerializer):
-    created_at = serializers.DateTimeField(format="%d-%m-%Y" " " "%H:%M")
+    created_at = serializers.DateTimeField(format="%d-%m-%Y %H:%M")
     prescribed_medication = PrescriptionSerializer()
     class Meta:
         model = MedicalRecord
@@ -107,7 +107,7 @@ class MedicalRecordSerializer(serializers.ModelSerializer):
 
 
 class FeedbackSerializer(serializers.ModelSerializer):
-    created_date = serializers.DateTimeField(format="%d-%m-%Y" " " "%H:%M")
+    created_date = serializers.DateTimeField(format="%d-%m-%Y %H:%M")
     average_rating = serializers.SerializerMethodField()
     class Meta:
         model = Feedback
@@ -118,7 +118,7 @@ class FeedbackSerializer(serializers.ModelSerializer):
 
 
 class BillingsSerializer(serializers.ModelSerializer):
-    issued_date = serializers.DateTimeField(format="%d-%m-%Y" " " "%H:%M")
+    issued_date = serializers.DateTimeField(format="%d-%m-%Y %H:%M")
     class Meta:
         model = Billings
         fields = ["id", "patient", "total_amount", "paid", "issued_date"]

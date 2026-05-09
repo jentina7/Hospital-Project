@@ -3,7 +3,7 @@ from django.urls import path, include
 from .views import *
 from rest_framework import routers
 
-router = routers.DefaultRouter()
+router = routers.SimpleRouter()
 router.register(r"profile", ProfileViewSet, basename="profile-list"),
 router.register(r"department", DepartmentListViewSet, basename="department-list"),
 router.register(r"doctor", DoctorViewSet, basename="doctor-list"),
